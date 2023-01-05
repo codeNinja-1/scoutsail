@@ -1,9 +1,7 @@
-import { Home } from './apps/home/index.js';
-import { Server } from './src/server.js';
+import express from 'express';
 
-const server = new Server();
-const app = new Home();
+const app = express();
 
-await server.install(app);
-await server.setup();
-await server.start(80);
+app.use(express.static('public'));
+
+app.listen(80);
